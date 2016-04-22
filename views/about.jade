@@ -3,3 +3,16 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  a(href='/') Home
+  h3 Delete Blog
+  form(action='/id/#{id}/delete' method="post")
+        input(type='submit')
+  h3 Edit Blog
+  form(action='/id/#{id}/update' method='post')
+    label(for='title') Title:
+    input(id='title' name='title' value='#{title}')
+    br
+    label(for='text') Text:
+    textarea(name='text') #{text}
+    br
+    input(type='submit')

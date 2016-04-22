@@ -6,20 +6,27 @@ block content
   p #{body}
   h3 Edit Home Page
   form(action='/' method='post')
-    fieldset
       label(for='title') Title:
       input(id='title' name='title')
       br
-    fieldset
       label(for='text') Text:
       textarea(id='text' name='text')
       br
     input(type='submit')
-    h3 Recent Blogs
-    ul
+  h3 Add Blog
+  form(action='/add' method='post')
+      label(for='title') Title:
+      input(id='title' name='title')
+      br
+      label(for='text') Text:
+      textarea(name='text')
+      br
+      input(type='submit')
+  h3 All Blogs
+  ul
     each blog in blogs
       li 
         p 
-          a(href='id/#{blog.id}') #{blog.title}
+          a(href='id/#{blog.id}') #{blog.id} - #{blog.title}
         p #{blog.text}
-    
+         
