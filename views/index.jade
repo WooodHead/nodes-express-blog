@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  p #{body}
+  h3 Edit Home Page
+  form(action='/' method='post')
+    fieldset
+      label(for='title') Title:
+      input(id='title' name='title')
+      br
+    fieldset
+      label(for='text') Text:
+      textarea(id='text' name='text')
+      br
+    input(type='submit')
+    h3 Recent Blogs
+    ul
+    each blog in blogs
+      li 
+        p 
+          a(href='id/#{blog.id}') #{blog.title}
+        p #{blog.text}
+    
